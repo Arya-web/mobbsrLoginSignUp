@@ -26,7 +26,7 @@ app.use('/apis', routes);
 
 app.get("/", (req, res) => {
   res.send(
-    "Hello! This is the backend for <strong>TRAVIO</strong> app. <br><br> api requests are available under /api"
+    "Hello! This is the backend for <strong>MOBBSR LOGIN SIGNUP</strong> app. <br><br> api requests are available under /apis"
   );
 });
 

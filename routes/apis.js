@@ -5,12 +5,23 @@ const User = require("../models/user");
 
 router.post("/register", (req, res) => {
   let { userName, phoneNumber, password } = req.body;
+  User.findOne({ phoneNumber: phoneNumber }).then((user) => {
+    if (user) {
+      res.json({
+        status: false,
+        response: "User already Exists"
+      })
+    }
+  });
+
   password = md5(password);
   const user = new User({
     userName,
     phoneNumber,
     password,
   });
+
+  user.active = true;
 
   user
     .save()
